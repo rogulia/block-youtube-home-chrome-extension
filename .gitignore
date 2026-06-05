@@ -5,6 +5,9 @@ Thumbs.db
 .idea/
 .vscode/
 
+# Local Claude Code / preview tooling
+.claude/
+
 # Stray local files not part of the extension
 get-docker.sh
 

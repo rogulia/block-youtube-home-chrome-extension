@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1280px; height: 800px; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .stage { position: relative; width: 1280px; height: 800px; }
+  .bg {
+    position: absolute; inset: 0;
+    background-position: center; background-size: cover; background-repeat: no-repeat;
+  }
+  .scrim {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.65) 22%, rgba(255,255,255,0) 46%),
+      linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 42%);
+  }
+  .content { position: absolute; left: 80px; top: 64px; right: 80px; }
+  .lockup { display: flex; align-items: center; gap: 11px; margin-bottom: 26px; }
+  .lockup img { width: 30px; height: 30px; border-radius: 7px; }
+  .lockup .name { font-size: 16px; font-weight: 700; color: #11302a; letter-spacing: -0.2px; }
+  h1 {
+    font-size: 48px; line-height: 1.08; font-weight: 800; letter-spacing: -1px;
+    color: #11302a; max-width: 720px;
+  }
+  h1 .accent { color: #0f9d63; }
+  p.sub {
+    margin-top: 20px; font-size: 21px; line-height: 1.45; color: #2f5247; max-width: 560px;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="bg" id="bg"></div>
+    <div class="scrim"></div>
+    <div class="content">
+      <div class="lockup">
+        <img src="../icons/icon128.png" alt="">
+        <span class="name">YouTube Home Blocker</span>
+      </div>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+    </div>
+  </div>
+<script>
+  const shots = {
+    "1": {
+      bg: "background-1.png",
+      title: 'Open YouTube on autopilot.<br><span class="accent">Land on your tasks.</span>',
+      sub: "You reach for the home feed without thinking — and it sends you straight back to your to-do list."
+    },
+    "2": {
+      bg: "background-4.png",
+      title: 'From the endless feed<br><span class="accent">back to real work.</span>',
+      sub: "Break the loop the moment you open youtube.com, instead of an hour later."
+    },
+    "3": {
+      bg: "background-2.png",
+      title: 'Stop losing hours<br><span class="accent">to the home feed.</span>',
+      sub: "Reclaim the time the feed quietly eats, every single visit."
+    },
+    "4": {
+      bg: "background-3.png",
+      title: 'Only the feed is redirected.',
+      sub: "Search, subscriptions and direct video links all keep working — nothing else breaks."
+    }
+  };
+  const key = (location.hash || "#1").slice(1);
+  const s = shots[key] || shots["1"];
+  document.getElementById("bg").style.backgroundImage = `url('${s.bg}')`;
+  document.getElementById("title").innerHTML = s.title;
+  document.getElementById("sub").innerHTML = s.sub;
+</script>
+</body>
+</html>

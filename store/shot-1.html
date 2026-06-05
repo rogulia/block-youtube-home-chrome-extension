@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1280px;
+    height: 800px;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .stage {
+    width: 1280px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 88px;
+    background:
+      radial-gradient(1100px 700px at 18% 12%, #ffffff 0%, rgba(255,255,255,0) 55%),
+      linear-gradient(135deg, #e9faf1 0%, #d3f3e2 55%, #c4eed8 100%);
+  }
+  .copy { flex: 1 1 0; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f7a4f;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(15,122,79,0.25);
+    padding: 7px 14px;
+    border-radius: 999px;
+    margin-bottom: 26px;
+  }
+  .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #16a368; }
+  h1 {
+    font-size: 50px;
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #11302a;
+  }
+  h1 .accent { color: #0f9d63; }
+  p.sub {
+    margin-top: 22px;
+    font-size: 21px;
+    line-height: 1.5;
+    color: #3a5a50;
+    max-width: 520px;
+  }
+  .note {
+    margin-top: 26px;
+    font-size: 16px;
+    color: #5a7a70;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .note svg { flex: none; }
+
+  /* floating popup card */
+  .card-wrap { flex: none; position: relative; }
+  .cursor {
+    position: absolute;
+    right: -14px;
+    bottom: 96px;
+    width: 30px;
+    height: 30px;
+    z-index: 3;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
+  }
+  .popup {
+    width: 360px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 30px 60px -20px rgba(17,48,42,0.45), 0 8px 20px -8px rgba(17,48,42,0.25);
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #1a1a1a;
+  }
+  .popup h2 { font-size: 17px; font-weight: 700; }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label { font-size: 13px; color: #666; }
+  .field .input {
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #1a1a1a;
+  }
+  .save {
+    margin-top: 2px;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: #c00;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .popup .foot { font-size: 13px; text-align: center; }
+  .popup .foot a { color: #c00; text-decoration: underline; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="copy">
+      <span class="badge"><span class="dot"></span>Focus tool, not a blocker</span>
+      <h1>Open YouTube on autopilot.<br><span class="accent">Land on your tasks.</span></h1>
+      <p class="sub">You meant to check one thing — an hour later you're still scrolling. This sends the YouTube home feed straight back to your to-do list.</p>
+      <div class="note">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#16a368" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Search and direct video links still work — only the feed is gone.
+      </div>
+    </div>
+    <div class="card-wrap">
+      <div class="popup">
+        <h2>YouTube Home Blocker</h2>
+        <div class="field">
+          <label>Redirect YouTube home to</label>
+          <div class="input">https://app.todoist.com/app/today</div>
+        </div>
+        <div class="save">Save</div>
+        <div class="foot"><a>Iurii focuses</a></div>
+      </div>
+      <svg class="cursor" viewBox="0 0 24 24" fill="#fff" stroke="#222" stroke-width="1.4"><path d="M4 2l16 8-7 2-2 7L4 2z"/></svg>
+    </div>
+  </div>
+</body>
+</html>

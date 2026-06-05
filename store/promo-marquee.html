@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1400px; height: 560px; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .stage { position: relative; width: 1400px; height: 560px; }
+  .bg { position: absolute; inset: 0;
+    background-image: url('background-1.png');
+    background-position: center 38%; background-size: cover; background-repeat: no-repeat; }
+  .scrim { position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 34%, rgba(255,255,255,0) 60%); }
+  .content { position: absolute; left: 84px; top: 0; bottom: 0; width: 720px;
+    display: flex; flex-direction: column; justify-content: center; }
+  .lockup { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+  .lockup img { width: 34px; height: 34px; border-radius: 8px; }
+  .lockup .name { font-size: 18px; font-weight: 700; color: #11302a; }
+  h1 { font-size: 52px; line-height: 1.07; font-weight: 800; letter-spacing: -1px; color: #11302a; }
+  h1 .accent { color: #0f9d63; }
+  p.sub { margin-top: 20px; font-size: 22px; line-height: 1.45; color: #2f5247; max-width: 540px; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="bg"></div>
+    <div class="scrim"></div>
+    <div class="content">
+      <div class="lockup">
+        <img src="../icons/icon128.png" alt="">
+        <span class="name">YouTube Home Blocker</span>
+      </div>
+      <h1>Open YouTube on autopilot.<br><span class="accent">Land on your tasks.</span></h1>
+      <p class="sub">The home feed redirects you straight back to what matters.</p>
+    </div>
+  </div>
+</body>
+</html>
