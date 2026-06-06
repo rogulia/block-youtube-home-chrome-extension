@@ -8,16 +8,17 @@
     width: 440px; height: 280px; overflow: hidden;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-  .stage {
-    width: 440px; height: 280px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: 28px;
+  .stage { position: relative; width: 440px; height: 280px; }
+  .bg { position: absolute; inset: 0;
+    background-image: url('background-1.png');
+    background-position: center 30%; background-size: cover; background-repeat: no-repeat; }
+  .scrim { position: absolute; inset: 0;
     background:
-      radial-gradient(420px 280px at 50% 0%, #ffffff 0%, rgba(255,255,255,0) 60%),
-      linear-gradient(140deg, #e9faf1 0%, #d3f3e2 60%, #c4eed8 100%);
-  }
-  .icon { width: 64px; height: 64px; border-radius: 15px;
-    box-shadow: 0 10px 22px -8px rgba(17,48,42,0.4); margin-bottom: 16px; }
+      radial-gradient(420px 300px at 50% 52%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 48%, rgba(255,255,255,0.5) 100%); }
+  .content { position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 28px; }
+  .icon { width: 60px; height: 60px; border-radius: 14px; margin-bottom: 16px; }
   .name { font-size: 25px; font-weight: 800; letter-spacing: -0.6px; color: #11302a; }
   .tag { margin-top: 9px; font-size: 15px; line-height: 1.35; color: #2f5247; max-width: 320px; }
   .tag b { color: #0f9d63; font-weight: 700; }
@@ -25,9 +26,13 @@
 </head>
 <body>
   <div class="stage">
-    <img class="icon" src="../icons/icon128.png" alt="">
-    <div class="name">YouTube Home Blocker</div>
-    <div class="tag">Redirect the home feed to your tasks and <b>stay focused</b>.</div>
+    <div class="bg"></div>
+    <div class="scrim"></div>
+    <div class="content">
+      <img class="icon" src="../icons/icon128.png" alt="">
+      <div class="name">YouTube Home Blocker</div>
+      <div class="tag">Redirect the home feed to your tasks and <b>stay focused</b>.</div>
+    </div>
   </div>
 </body>
 </html>
