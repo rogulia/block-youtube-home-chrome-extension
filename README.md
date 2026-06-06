@@ -16,7 +16,9 @@ land on your task list, calendar, a blank page — whatever you set.
 A content script runs at `document_start` on every YouTube page. **Only when the
 path is exactly `/`** it calls `location.replace()` to your chosen URL. The early
 injection redirects the feed before it renders; the exact-path guard makes sure
-every other YouTube page is untouched.
+every other YouTube page is untouched. It also re-checks on YouTube's in-app
+(`yt-navigate-finish`) navigation, so clicking the logo to go "home" is redirected
+too — not just a fresh page load.
 
 Your redirect URL is stored in `chrome.storage.sync` and never leaves your
 browser.
@@ -36,6 +38,7 @@ The default redirect is the Todoist Today view
 | File           | Purpose                                                        |
 | -------------- | ------------------------------------------------------------- |
 | `manifest.json`| Extension manifest (MV3), permissions, icons.                 |
+| `constants.js` | Shared default redirect URL, used by `content.js` and `popup.js`. |
 | `content.js`   | Redirects the homepage. Injected at `document_start`.         |
 | `popup.html`   | Toolbar popup UI.                                             |
 | `popup.js`     | Loads/saves the redirect URL in `chrome.storage.sync`.        |

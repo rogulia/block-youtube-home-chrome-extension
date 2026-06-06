@@ -17,7 +17,7 @@ the extension is plain JS/HTML loaded directly by Chrome.
 - **Load locally:** `chrome://extensions` → enable Developer mode → "Load unpacked" → select this directory.
 - **Apply changes:** after editing files, click the reload icon on the extension card in `chrome://extensions`. For `content.js` changes, also reload the YouTube tab.
 - **Bump `version` in `manifest.json`** when packaging a new release.
-- **Package for the store:** zip the file contents (not the parent folder) — `manifest.json`, `content.js`, `popup.html`, `popup.js`, and the `icons/` directory.
+- **Package for the store:** zip the file contents (not the parent folder) — `manifest.json`, `constants.js`, `content.js`, `popup.html`, `popup.js`, and the `icons/` directory.
 
 ## Icons
 
@@ -34,11 +34,15 @@ Three moving parts share one piece of state — the `redirectUrl` key in
   `document_start`. It reads `redirectUrl` and, **only when the path is exactly
   `/`**, calls `location.replace()`. The early `run_at` and the exact-path guard
   are deliberate: they redirect the home feed before it renders without breaking
-  any other YouTube page.
+  any other YouTube page. It also re-runs the check on YouTube's
+  `yt-navigate-finish` event so in-app navigation to `/` (e.g. clicking the logo)
+  is caught, and skips the redirect when the target equals the current URL to
+  avoid loops.
 - `popup.html` / `popup.js` — the toolbar popup UI. Loads the current
   `redirectUrl` into the input and writes it back to `chrome.storage.sync` on
-  Save.
+  Save. The input is validated/normalized (schemeless entries get `https://`;
+  only http(s) is accepted) and Save stays disabled until the value is valid.
 
-The default redirect URL (`https://app.todoist.com/app/today`) is duplicated as a
-literal in both `content.js` and `popup.js`. Keep the two in sync when changing
-the default.
+The default redirect URL (`https://app.todoist.com/app/today`) lives in
+`constants.js` as `DEFAULT_REDIRECT_URL`, shared by both `content.js` and
+`popup.js`. Change it there.

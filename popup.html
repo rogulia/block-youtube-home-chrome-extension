@@ -1,88 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      width: 320px;
-      margin: 0;
-      padding: 16px;
-      box-sizing: border-box;
-      color: #1a1a1a;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    h1 {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 0;
-    }
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    label {
-      font-size: 12px;
-      color: #666;
-    }
-    #url {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 8px 10px;
-      font-size: 13px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      outline: none;
-      transition: border-color 0.15s;
-    }
-    #url:focus {
-      border-color: #c00;
-    }
-    #save {
-      width: 100%;
-      padding: 9px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      background: #c00;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    #save:hover {
-      background: #a00;
-    }
-    #save.saved {
-      background: #2a8a2a;
-    }
-    footer {
-      font-size: 12px;
-      text-align: center;
-    }
-    footer a {
-      color: #c00;
-      text-decoration: underline;
-    }
-    footer a:hover {
-      color: #a00;
-    }
-  </style>
-</head>
-<body>
-  <h1>YouTube Home Blocker</h1>
-  <div class="field">
-    <label for="url">Redirect YouTube home to</label>
-    <input id="url" type="text" placeholder="https://example.com">
-  </div>
-  <button id="save">Save</button>
-  <footer>
-    <a href="https://iurii.rogulia.fi/projects/block-youtube-home" target="_blank" rel="noopener">Iurii focuses</a>
-  </footer>
-  <script src="popup.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        width: 320px;
+        margin: 0;
+        padding: 16px;
+        box-sizing: border-box;
+        color: #1a1a1a;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      h1 {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0;
+      }
+      #form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      label {
+        font-size: 12px;
+        color: #666;
+      }
+      #url {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 8px 10px;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      #url:focus {
+        border-color: #c00;
+      }
+      #save {
+        width: 100%;
+        padding: 9px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        background: #c00;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      #save:hover {
+        background: #a00;
+      }
+      #save:disabled {
+        background: #d99;
+        cursor: not-allowed;
+      }
+      #save.saved {
+        background: #2a8a2a;
+      }
+      .hint {
+        font-size: 12px;
+        color: #c00;
+      }
+      footer {
+        font-size: 12px;
+        text-align: center;
+      }
+      footer a {
+        color: #c00;
+        text-decoration: underline;
+      }
+      footer a:hover {
+        color: #a00;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>YouTube Home Blocker</h1>
+    <form id="form">
+      <div class="field">
+        <label for="url">Redirect YouTube home to</label>
+        <input id="url" type="url" placeholder="https://example.com" />
+        <span id="hint" class="hint" hidden>Enter a valid http(s) URL.</span>
+      </div>
+      <button id="save" type="submit">Save</button>
+    </form>
+    <footer>
+      <a
+        href="https://iurii.rogulia.fi/projects/block-youtube-home"
+        target="_blank"
+        rel="noopener"
+        >Iurii focuses</a
+      >
+    </footer>
+    <script src="constants.js"></script>
+    <script src="popup.js"></script>
+  </body>
 </html>

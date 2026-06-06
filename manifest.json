@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Home Blocker — Redirect & Focus",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Redirect the YouTube homepage to any URL and skip the endless feed. Search and videos keep working.",
   "permissions": ["storage"],
   "host_permissions": ["https://www.youtube.com/*"],
@@ -23,7 +23,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
-      "js": ["content.js"],
+      "js": ["constants.js", "content.js"],
       "run_at": "document_start"
     }
   ]
