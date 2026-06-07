@@ -1,5 +1,9 @@
 # YouTube Home Blocker — Redirect & Focus
 
+[![Available in the Chrome Web Store](https://img.shields.io/chrome-web-store/v/iicjmmpbljanedonobppjkndnhjdflgp?label=Chrome%20Web%20Store&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp)
+[![Users](https://img.shields.io/chrome-web-store/users/iicjmmpbljanedonobppjkndnhjdflgp?label=users)](https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 A tiny Manifest V3 Chrome extension that redirects the YouTube homepage
 (`https://www.youtube.com/`) to any URL you choose, so you skip the endless
 recommendations feed. The rest of YouTube — search, video pages, subscriptions,
@@ -22,6 +26,11 @@ too — not just a fresh page load.
 
 Your redirect URL is stored in `chrome.storage.sync` and never leaves your
 browser.
+
+## Install
+
+**From the Chrome Web Store (recommended):**
+[YouTube Home Blocker — Redirect & Focus](https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp)
 
 ## Install from source
 
