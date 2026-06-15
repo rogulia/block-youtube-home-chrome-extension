@@ -9,6 +9,10 @@ A tiny Manifest V3 Chrome extension that redirects the YouTube homepage
 recommendations feed. The rest of YouTube — search, video pages, subscriptions,
 history — keeps working normally.
 
+<p align="center">
+  <img src="store/demo.gif" alt="Opening youtube.com lands you on your task list instead of the home feed" width="680" />
+</p>
+
 ## Why
 
 The YouTube homepage feed is the single biggest time sink on the site. This
@@ -24,8 +28,13 @@ every other YouTube page is untouched. It also re-checks on YouTube's in-app
 (`yt-navigate-finish`) navigation, so clicking the logo to go "home" is redirected
 too — not just a fresh page load.
 
-Your redirect URL is stored in `chrome.storage.sync` and never leaves your
-browser.
+The toolbar popup has a one-click **on/off toggle** to pause redirecting when you
+actually want the feed, and a small **counter** showing how many times it has
+sent you back to focus.
+
+Your redirect URL and the on/off state live in `chrome.storage.sync` (synced
+across your browsers, never leaves them); the redirect counter lives in
+`chrome.storage.local` to stay off the sync write quota.
 
 ## Install
 

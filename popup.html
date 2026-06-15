@@ -14,17 +14,68 @@
         background: #fff;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
       }
       h1 {
         font-size: 15px;
         font-weight: 600;
         margin: 0;
       }
+      .toggle-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .toggle-row .tlabel {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+      .switch {
+        position: relative;
+        width: 40px;
+        height: 22px;
+        flex: none;
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        inset: 0;
+        background: #ccc;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .slider::before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 3px;
+        top: 3px;
+        background: #fff;
+        border-radius: 50%;
+        transition: transform 0.15s;
+      }
+      .switch input:checked + .slider {
+        background: #2a8a2a;
+      }
+      .switch input:checked + .slider::before {
+        transform: translateX(18px);
+      }
       #form {
         display: flex;
         flex-direction: column;
         gap: 8px;
+        transition: opacity 0.15s;
+      }
+      body.paused #form {
+        opacity: 0.45;
       }
       .field {
         display: flex;
@@ -74,6 +125,15 @@
         font-size: 12px;
         color: #c00;
       }
+      .stat {
+        font-size: 12px;
+        color: #666;
+        text-align: center;
+      }
+      .stat b {
+        color: #2a8a2a;
+        font-weight: 700;
+      }
       footer {
         font-size: 12px;
         text-align: center;
@@ -89,6 +149,13 @@
   </head>
   <body>
     <h1>YouTube Home Blocker</h1>
+    <div class="toggle-row">
+      <span class="tlabel" id="toggleLabel">Redirecting the home feed</span>
+      <label class="switch">
+        <input type="checkbox" id="enabled" />
+        <span class="slider"></span>
+      </label>
+    </div>
     <form id="form">
       <div class="field">
         <label for="url">Redirect YouTube home to</label>
@@ -97,6 +164,7 @@
       </div>
       <button id="save" type="submit">Save</button>
     </form>
+    <div class="stat" id="stat"></div>
     <footer>
       <a
         href="https://iurii.rogulia.fi/projects/block-youtube-home"

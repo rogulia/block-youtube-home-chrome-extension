@@ -2,6 +2,9 @@ const form = document.getElementById("form");
 const input = document.getElementById("url");
 const save = document.getElementById("save");
 const hint = document.getElementById("hint");
+const enabled = document.getElementById("enabled");
+const toggleLabel = document.getElementById("toggleLabel");
+const stat = document.getElementById("stat");
 
 // Standard host shapes: RFC-1123 domain with a real TLD, IPv4 literal, or localhost.
 const DOMAIN_RE =
@@ -36,9 +39,47 @@ function refreshValidity() {
   return valid;
 }
 
-chrome.storage.sync.get({ redirectUrl: DEFAULT_REDIRECT_URL }, (data) => {
-  input.value = data.redirectUrl;
-  refreshValidity();
+function renderEnabled(isOn) {
+  enabled.checked = isOn;
+  document.body.classList.toggle("paused", !isOn);
+  toggleLabel.textContent = isOn
+    ? "Redirecting the home feed"
+    : "Paused — feed is allowed";
+}
+
+function renderCount(count) {
+  if (!count) {
+    stat.textContent = "Open youtube.com to see it work.";
+    return;
+  }
+  const times = count === 1 ? "time" : "times";
+  stat.innerHTML = `Sent you back to focus <b>${count}</b> ${times}.`;
+}
+
+chrome.storage.sync.get(
+  { redirectUrl: DEFAULT_REDIRECT_URL, enabled: true },
+  (data) => {
+    input.value = data.redirectUrl;
+    renderEnabled(data.enabled);
+    refreshValidity();
+  },
+);
+
+chrome.storage.local.get({ redirectCount: 0 }, (data) => {
+  renderCount(data.redirectCount);
+});
+
+// Keep the counter live if a redirect happens while the popup is open.
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === "local" && changes.redirectCount) {
+    renderCount(changes.redirectCount.newValue);
+  }
+});
+
+enabled.addEventListener("change", () => {
+  const isOn = enabled.checked;
+  renderEnabled(isOn);
+  chrome.storage.sync.set({ enabled: isOn });
 });
 
 input.addEventListener("input", refreshValidity);

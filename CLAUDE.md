@@ -27,21 +27,33 @@ upload will fail. 128×128 is the required store icon.
 
 ## Architecture
 
-Three moving parts share one piece of state — the `redirectUrl` key in
-`chrome.storage.sync`:
+State is split across two storage areas:
+
+- `chrome.storage.sync` (synced, user prefs): `redirectUrl` and `enabled`
+  (the on/off toggle, default `true`).
+- `chrome.storage.local` (device-local, frequent writes): `redirectCount` — kept
+  off the sync write quota because it updates on every redirect.
+
+The moving parts:
 
 - `content.js` — content script injected into all youtube.com pages at
-  `document_start`. It reads `redirectUrl` and, **only when the path is exactly
-  `/`**, calls `location.replace()`. The early `run_at` and the exact-path guard
-  are deliberate: they redirect the home feed before it renders without breaking
-  any other YouTube page. It also re-runs the check on YouTube's
-  `yt-navigate-finish` event so in-app navigation to `/` (e.g. clicking the logo)
-  is caught, and skips the redirect when the target equals the current URL to
+  `document_start`. It reads `redirectUrl`/`enabled` and, **only when the path is
+  exactly `/`** and `enabled` is true, increments `redirectCount` in
+  `storage.local` and then calls `location.replace()`. The counter write is
+  nested in the `storage.local.set` callback so it completes before the page
+  unloads. The early `run_at` and the exact-path guard are deliberate: they
+  redirect the home feed before it renders without breaking any other YouTube
+  page. It also re-runs the check on YouTube's `yt-navigate-finish` and
+  `popstate` events so in-app navigation to `/` (e.g. clicking the logo) is
+  caught, and skips the redirect when the target equals the current URL to
   avoid loops.
 - `popup.html` / `popup.js` — the toolbar popup UI. Loads the current
   `redirectUrl` into the input and writes it back to `chrome.storage.sync` on
   Save. The input is validated/normalized (schemeless entries get `https://`;
   only http(s) is accepted) and Save stays disabled until the value is valid.
+  An on/off switch writes `enabled` to `storage.sync` (and dims the form when
+  paused), and a stat line renders `redirectCount`, kept live via a
+  `chrome.storage.onChanged` listener.
 
 The default redirect URL (`https://app.todoist.com/app/today`) lives in
 `constants.js` as `DEFAULT_REDIRECT_URL`, shared by both `content.js` and

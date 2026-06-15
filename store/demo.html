@@ -1,0 +1,484 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      :root {
+        --t: 0s;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 880px;
+        height: 550px;
+        background: #e9eef3;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      /* ---- Browser window frame ---- */
+      .window {
+        width: 800px;
+        height: 470px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 18px 50px rgba(20, 30, 50, 0.22);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .chrome {
+        height: 46px;
+        background: #f1f3f4;
+        border-bottom: 1px solid #e3e5e7;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 14px;
+        flex: none;
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+      .dot.r {
+        background: #ff5f57;
+      }
+      .dot.y {
+        background: #febc2e;
+      }
+      .dot.g {
+        background: #28c840;
+      }
+      .omni {
+        flex: 1;
+        height: 28px;
+        margin-left: 10px;
+        background: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        font-size: 13px;
+        color: #3c4043;
+        position: relative;
+        overflow: hidden;
+      }
+      .omni .lock {
+        color: #5f6368;
+        margin-right: 7px;
+        font-size: 11px;
+      }
+      .url {
+        position: absolute;
+        left: 32px;
+        white-space: nowrap;
+      }
+      .url b {
+        color: #202124;
+        font-weight: 600;
+      }
+      .url .dim {
+        color: #80868b;
+      }
+      /* two URLs crossfade */
+      .url.yt {
+        animation: urlYt var(--t) linear paused;
+      }
+      .url.td {
+        animation: urlTd var(--t) linear paused;
+      }
+      @keyframes urlYt {
+        0%,
+        34% {
+          opacity: 1;
+        }
+        42%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes urlTd {
+        0%,
+        34% {
+          opacity: 0;
+        }
+        42%,
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* ---- Sliding stage: two panels side by side ---- */
+      .stage {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+      }
+      .strip {
+        position: absolute;
+        inset: 0;
+        width: 200%;
+        display: flex;
+        animation: slide var(--t) cubic-bezier(0.7, 0, 0.2, 1) paused;
+      }
+      @keyframes slide {
+        0%,
+        34% {
+          transform: translateX(0);
+        }
+        46%,
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .panel {
+        width: 50%;
+        height: 100%;
+        flex: none;
+        position: relative;
+      }
+
+      /* ---- YouTube feed panel ---- */
+      .feed {
+        background: #fff;
+        padding: 16px 18px;
+      }
+      .ytbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+      .ytlogo {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-weight: 700;
+        font-size: 16px;
+        color: #0f0f0f;
+      }
+      .play {
+        width: 26px;
+        height: 18px;
+        background: #ff0000;
+        border-radius: 5px;
+        position: relative;
+      }
+      .play::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        border-left: 7px solid #fff;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
+      .ytsearch {
+        flex: 1;
+        height: 26px;
+        border: 1px solid #ccc;
+        border-radius: 999px;
+        max-width: 240px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px 16px;
+      }
+      .card .thumb {
+        height: 96px;
+        border-radius: 10px;
+      }
+      .card .l1 {
+        height: 9px;
+        background: #e5e5e5;
+        border-radius: 4px;
+        margin: 9px 0 5px;
+        width: 92%;
+      }
+      .card .l2 {
+        height: 8px;
+        background: #efefef;
+        border-radius: 4px;
+        width: 60%;
+      }
+      .t1 {
+        background: linear-gradient(135deg, #ff8a80, #ff5252);
+      }
+      .t2 {
+        background: linear-gradient(135deg, #80d8ff, #40c4ff);
+      }
+      .t3 {
+        background: linear-gradient(135deg, #b388ff, #7c4dff);
+      }
+      .t4 {
+        background: linear-gradient(135deg, #ffd180, #ffab40);
+      }
+      .t5 {
+        background: linear-gradient(135deg, #a7ffeb, #1de9b6);
+      }
+      .t6 {
+        background: linear-gradient(135deg, #f8bbd0, #f06292);
+      }
+      .feedveil {
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.55);
+        opacity: 0;
+        animation: veil var(--t) linear paused;
+      }
+      @keyframes veil {
+        0%,
+        34% {
+          opacity: 0;
+        }
+        40% {
+          opacity: 0.5;
+        }
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      /* ---- Tasks panel ---- */
+      .tasks {
+        background: #fdfcfa;
+        padding: 22px 26px;
+      }
+      .th {
+        font-size: 19px;
+        font-weight: 700;
+        color: #202020;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+      .th .day {
+        font-size: 12px;
+        font-weight: 500;
+        color: #9a9a9a;
+      }
+      .tsub {
+        font-size: 12px;
+        color: #9a9a9a;
+        margin-bottom: 18px;
+      }
+      .task {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px solid #f0eeea;
+        opacity: 0;
+        animation: taskIn var(--t) ease-out paused;
+      }
+      .task .cb {
+        width: 17px;
+        height: 17px;
+        border: 2px solid #c44;
+        border-radius: 50%;
+        flex: none;
+      }
+      .task.done .cb {
+        background: #c44;
+      }
+      .task .tx {
+        font-size: 14px;
+        color: #33312e;
+      }
+      .task.done .tx {
+        color: #b3b0ac;
+        text-decoration: line-through;
+      }
+      .task .pri {
+        margin-left: auto;
+        font-size: 11px;
+        color: #c44;
+        font-weight: 600;
+      }
+      .task:nth-child(3) {
+        --d: 50%;
+      }
+      .task:nth-child(4) {
+        --d: 56%;
+      }
+      .task:nth-child(5) {
+        --d: 62%;
+      }
+      .task:nth-child(6) {
+        --d: 68%;
+      }
+      @keyframes taskIn {
+        0%,
+        46% {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        62% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* stagger via per-row negative delay using --d is hard; use simple shared in */
+
+      /* ---- Caption ---- */
+      .cap {
+        position: absolute;
+        bottom: 26px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(15, 20, 35, 0.86);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 9px 18px;
+        border-radius: 999px;
+        white-space: nowrap;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      }
+      .cap.one {
+        animation: capOne var(--t) linear paused;
+      }
+      .cap.two {
+        animation: capTwo var(--t) linear paused;
+      }
+      @keyframes capOne {
+        0%,
+        30% {
+          opacity: 1;
+        }
+        38%,
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes capTwo {
+        0%,
+        52% {
+          opacity: 0;
+        }
+        60%,
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="window">
+      <div class="chrome">
+        <span class="dot r"></span>
+        <span class="dot y"></span>
+        <span class="dot g"></span>
+        <div class="omni">
+          <span class="lock">🔒</span>
+          <span class="url yt"
+            ><span class="dim">https://www.</span><b>youtube.com</b
+            ><span class="dim">/</span></span
+          >
+          <span class="url td"
+            ><span class="dim">https://</span><b>app.todoist.com</b
+            ><span class="dim">/app/today</span></span
+          >
+        </div>
+      </div>
+      <div class="stage">
+        <div class="strip">
+          <!-- Panel 1: YouTube feed -->
+          <div class="panel feed">
+            <div class="ytbar">
+              <span class="ytlogo"><span class="play"></span>YouTube</span>
+              <span class="ytsearch"></span>
+            </div>
+            <div class="grid">
+              <div class="card">
+                <div class="thumb t1"></div>
+                <div class="l1"></div>
+                <div class="l2"></div>
+              </div>
+              <div class="card">
+                <div class="thumb t2"></div>
+                <div class="l1"></div>
+                <div class="l2"></div>
+              </div>
+              <div class="card">
+                <div class="thumb t3"></div>
+                <div class="l1"></div>
+                <div class="l2"></div>
+              </div>
+              <div class="card">
+                <div class="thumb t4"></div>
+                <div class="l1"></div>
+                <div class="l2"></div>
+              </div>
+              <div class="card">
+                <div class="thumb t5"></div>
+                <div class="l1"></div>
+                <div class="l2"></div>
+              </div>
+              <div class="card">
+                <div class="thumb t6"></div>
+                <div class="l1"></div>
+                <div class="l2"></div>
+              </div>
+            </div>
+            <div class="feedveil"></div>
+          </div>
+          <!-- Panel 2: Tasks -->
+          <div class="panel tasks">
+            <div class="th">Today <span class="day">· Monday 15 Jun</span></div>
+            <div class="tsub">4 tasks · stay on track</div>
+            <div class="task done">
+              <span class="cb"></span><span class="tx">Ship v1.3 of the extension</span>
+            </div>
+            <div class="task">
+              <span class="cb"></span><span class="tx">Write the weekly review</span
+              ><span class="pri">P1</span>
+            </div>
+            <div class="task">
+              <span class="cb"></span><span class="tx">Reply to 3 important emails</span>
+            </div>
+            <div class="task">
+              <span class="cb"></span><span class="tx">30 min deep work block</span
+              ><span class="pri">P2</span>
+            </div>
+          </div>
+        </div>
+        <div class="cap one">Open YouTube on autopilot…</div>
+        <div class="cap two">…land on what actually matters.</div>
+      </div>
+    </div>
+    <script>
+      // Seek the whole storyboard to ?t=<seconds> by setting --t to the
+      // animation DURATION and using a negative delay to freeze that moment.
+      const params = new URLSearchParams(location.search);
+      const dur = parseFloat(params.get("dur") || "5");
+      const t = parseFloat(params.get("t") || "0");
+      document.documentElement.style.setProperty("--t", dur + "s");
+      // Freeze every animation at time t via negative delay.
+      const css = document.createElement("style");
+      css.textContent =
+        "*{animation-delay:" + -t + "s !important;}";
+      document.head.appendChild(css);
+    </script>
+  </body>
+</html>
