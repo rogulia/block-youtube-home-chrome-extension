@@ -432,6 +432,13 @@
         .reveal { opacity: 1; transform: none; }
       }
     </style>
+
+    <!-- Umami analytics (privacy-friendly, cookieless) -->
+    <script
+      defer
+      src="https://u.rogulia.fi/script.js"
+      data-website-id="c847002d-fbd1-467f-a1e3-1a7f7a1476e3"
+    ></script>
   </head>
 
   <body>
@@ -443,6 +450,8 @@
       <a
         class="nav-cta"
         href="https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp"
+        data-umami-event="add-to-chrome"
+        data-umami-event-placement="nav"
         >Add to Chrome</a
       >
     </nav>
@@ -461,10 +470,17 @@
         <a
           class="btn-primary"
           href="https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp"
+          data-umami-event="add-to-chrome"
+          data-umami-event-placement="hero"
         >
           Add to Chrome — it's free →
         </a>
-        <a class="btn-ghost" href="https://github.com/rogulia/block-youtube-home-chrome-extension">View source on GitHub</a>
+        <a
+          class="btn-ghost"
+          href="https://github.com/rogulia/block-youtube-home-chrome-extension"
+          data-umami-event="view-source-github"
+          >View source on GitHub</a
+        >
       </div>
       <div class="trust" data-stagger style="animation-delay: 0.42s">
         <span><b>0</b> data collected</span>
@@ -607,6 +623,8 @@
           <a
             class="btn-primary"
             href="https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp"
+            data-umami-event="add-to-chrome"
+            data-umami-event-placement="final-cta"
           >
             Add to Chrome — it's free →
           </a>
