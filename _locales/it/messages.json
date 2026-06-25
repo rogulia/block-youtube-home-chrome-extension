@@ -3,7 +3,7 @@
     "message": "YouTube Home Blocker — Blocca il feed"
   },
   "extDescription": {
-    "message": "Blocca il feed della home di YouTube e reindirizzalo a qualsiasi URL. Basta scroll infinito: ricerca e video continuano a funzionare."
+    "message": "Blocca il feed della home di YouTube e reindirizzalo a qualsiasi URL. Basta scroll infinito: ricerca e video restano attivi."
   },
   "toggleOn": {
     "message": "Reindirizzamento del feed home"
@@ -27,7 +27,7 @@
     "message": "Apri youtube.com per vederlo in azione."
   },
   "statCount": {
-    "message": "Tornato alla concentrazione: $COUNT$",
+    "message": "Ritorni alla concentrazione: $COUNT$",
     "placeholders": { "count": { "content": "$1" } }
   },
   "footerDeveloper": {

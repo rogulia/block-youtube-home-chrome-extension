@@ -3,7 +3,7 @@
     "message": "YouTube Home Blocker — Bloquear feed"
   },
   "extDescription": {
-    "message": "Bloqueie o feed da página inicial do YouTube e redirecione para qualquer URL. Sem scroll infinito — busca e vídeos continuam funcionando."
+    "message": "Bloqueie o feed inicial do YouTube e redirecione para qualquer URL. Sem scroll infinito — busca e vídeos continuam funcionando."
   },
   "toggleOn": {
     "message": "Redirecionando o feed inicial"
