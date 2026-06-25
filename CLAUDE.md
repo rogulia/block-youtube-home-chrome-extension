@@ -17,7 +17,7 @@ the extension is plain JS/HTML loaded directly by Chrome.
 - **Load locally:** `chrome://extensions` → enable Developer mode → "Load unpacked" → select this directory.
 - **Apply changes:** after editing files, click the reload icon on the extension card in `chrome://extensions`. For `content.js` changes, also reload the YouTube tab.
 - **Bump `version` in `manifest.json`** when packaging a new release.
-- **Package for the store:** zip the file contents (not the parent folder) — `manifest.json`, `constants.js`, `content.js`, `popup.html`, `popup.js`, and the `icons/` directory.
+- **Package for the store:** zip the file contents (not the parent folder) — `manifest.json`, `constants.js`, `content.js`, `popup.html`, `popup.js`, the `icons/` directory, and the `_locales/` directory. Omitting `_locales/` will break the localized name/description (and fail validation, since `manifest.json` uses `__MSG_…__` placeholders with `default_locale`).
 
 ## Icons
 
