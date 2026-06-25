@@ -54,15 +54,9 @@ Block the YouTube homepage feed and redirect it to any URL. Stop endless scrolli
 ```
 Block the YouTube homepage feed and focus on your tasks.
 
-The YouTube home feed — the endless wall of recommendations — is the single
-biggest time-sink on the site. YouTube Home Blocker removes it without breaking
-anything else. The moment you open youtube.com, you're redirected to a page of
-your choice: your task list, calendar, dashboard, or a blank page. Search, video
-pages, subscriptions and watch history all keep working exactly as normal.
+The YouTube home feed — the endless wall of recommendations — is the single biggest time-sink on the site. YouTube Home Blocker removes it without breaking anything else. The moment you open youtube.com, you're redirected to a page of your choice: your task list, calendar, dashboard, or a blank page. Search, video pages, subscriptions and watch history all keep working exactly as normal.
 
-If you want to stop endless scrolling, avoid YouTube distractions, and use
-YouTube intentionally instead of falling into the recommendations rabbit hole,
-this is the lightest possible way to do it.
+If you want to stop endless scrolling, avoid YouTube distractions, and use YouTube intentionally instead of falling into the recommendations rabbit hole, this is the lightest possible way to do it.
 
 FEATURES
 • Block the YouTube homepage feed and redirect it to any URL you set
@@ -78,13 +72,9 @@ HOW IT WORKS
 2. Enter the URL you want to land on instead of the YouTube feed
 3. Save — that's it
 
-The redirect runs before the homepage renders, so you never even see the feed
-load. Your redirect URL is stored only in Chrome's sync storage and is never
-sent anywhere.
+The redirect runs before the homepage renders, so you never even see the feed load. Your redirect URL is stored only in Chrome's sync storage and is never sent anywhere.
 
-Keywords: block youtube homepage, remove youtube feed, hide youtube home,
-youtube distraction blocker, stop youtube recommendations, youtube focus,
-productivity, digital wellbeing.
+Keywords: block youtube homepage, remove youtube feed, hide youtube home, youtube distraction blocker, stop youtube recommendations, youtube focus, productivity, digital wellbeing.
 
 Open source (MIT). Made by Iurii Rogulia — https://iurii.rogulia.fi/projects/block-youtube-home
 ```
