@@ -26,7 +26,8 @@ Block the YouTube homepage feed and redirect it to any URL. Stop endless scrolli
 | German   | `_locales/de` |
 | Spanish  | `_locales/es` |
 | Italian  | `_locales/it` |
-| Portuguese | `_locales/pt` |
+| Portuguese (Brazil) | `_locales/pt_BR` |
+| Portuguese (Portugal) | `_locales/pt_PT` |
 | Chinese (Simplified) | `_locales/zh_CN` |
 | Arabic   | `_locales/ar` |
 | Hindi    | `_locales/hi` |
