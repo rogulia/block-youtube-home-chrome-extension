@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "拦截 YouTube 首页推荐信息流，并重定向到任意网址。告别无尽刷视频，保持专注——搜索和视频播放照常可用。"
+  },
+  "toggleOn": {
+    "message": "正在重定向首页信息流"
+  },
+  "toggleOff": {
+    "message": "已暂停 — 允许显示信息流"
+  },
+  "labelRedirectTo": {
+    "message": "将 YouTube 首页重定向到"
+  },
+  "hintInvalidUrl": {
+    "message": "请输入有效的 http(s) 网址。"
+  },
+  "btnSave": {
+    "message": "保存"
+  },
+  "btnSaved": {
+    "message": "已保存 ✓"
+  },
+  "statZero": {
+    "message": "打开 youtube.com 即可看到效果。"
+  },
+  "statCount": {
+    "message": "已帮你回到专注：$COUNT$ 次",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "开发者："
   }
 }

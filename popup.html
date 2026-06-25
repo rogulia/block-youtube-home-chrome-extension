@@ -158,15 +158,17 @@
     </div>
     <form id="form">
       <div class="field">
-        <label for="url">Redirect YouTube home to</label>
+        <label for="url" data-i18n="labelRedirectTo">Redirect YouTube home to</label>
         <input id="url" type="url" placeholder="https://example.com" />
-        <span id="hint" class="hint" hidden>Enter a valid http(s) URL.</span>
+        <span id="hint" class="hint" hidden data-i18n="hintInvalidUrl"
+          >Enter a valid http(s) URL.</span
+        >
       </div>
-      <button id="save" type="submit">Save</button>
+      <button id="save" type="submit" data-i18n="btnSave">Save</button>
     </form>
     <div class="stat" id="stat"></div>
     <footer>
-      Developer:
+      <span data-i18n="footerDeveloper">Developer:</span>
       <a
         href="https://iurii.rogulia.fi/projects/block-youtube-home"
         target="_blank"

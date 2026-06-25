@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "Blocca il feed della home di YouTube e reindirizzalo a qualsiasi URL. Basta scroll infinito: ricerca e video continuano a funzionare."
+  },
+  "toggleOn": {
+    "message": "Reindirizzamento del feed home"
+  },
+  "toggleOff": {
+    "message": "In pausa: il feed è consentito"
+  },
+  "labelRedirectTo": {
+    "message": "Reindirizza la home di YouTube a"
+  },
+  "hintInvalidUrl": {
+    "message": "Inserisci un URL http(s) valido."
+  },
+  "btnSave": {
+    "message": "Salva"
+  },
+  "btnSaved": {
+    "message": "Salvato ✓"
+  },
+  "statZero": {
+    "message": "Apri youtube.com per vederlo in azione."
+  },
+  "statCount": {
+    "message": "Tornato alla concentrazione: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "Sviluppatore:"
   }
 }

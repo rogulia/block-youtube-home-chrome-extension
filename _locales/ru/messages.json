@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "Блокируйте главную ленту YouTube и перенаправляйте на любой URL. Хватит бесконечной прокрутки — поиск и видео работают."
+  },
+  "toggleOn": {
+    "message": "Перенаправление главной ленты"
+  },
+  "toggleOff": {
+    "message": "Пауза — лента доступна"
+  },
+  "labelRedirectTo": {
+    "message": "Перенаправлять главную YouTube на"
+  },
+  "hintInvalidUrl": {
+    "message": "Введите корректный http(s) URL."
+  },
+  "btnSave": {
+    "message": "Сохранить"
+  },
+  "btnSaved": {
+    "message": "Сохранено ✓"
+  },
+  "statZero": {
+    "message": "Откройте youtube.com, чтобы увидеть результат."
+  },
+  "statCount": {
+    "message": "Возвратов к делам: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "Разработчик:"
   }
 }

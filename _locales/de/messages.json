@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "Blockiere den YouTube-Startseiten-Feed und leite ihn auf jede URL um. Schluss mit endlosem Scrollen — Suche und Videos bleiben nutzbar."
+  },
+  "toggleOn": {
+    "message": "Startseiten-Feed wird umgeleitet"
+  },
+  "toggleOff": {
+    "message": "Pausiert – Feed ist erlaubt"
+  },
+  "labelRedirectTo": {
+    "message": "YouTube-Startseite umleiten zu"
+  },
+  "hintInvalidUrl": {
+    "message": "Gib eine gültige http(s)-URL ein."
+  },
+  "btnSave": {
+    "message": "Speichern"
+  },
+  "btnSaved": {
+    "message": "Gespeichert ✓"
+  },
+  "statZero": {
+    "message": "Öffne youtube.com, um es in Aktion zu sehen."
+  },
+  "statCount": {
+    "message": "Zurück zum Fokus: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "Entwickler:"
   }
 }

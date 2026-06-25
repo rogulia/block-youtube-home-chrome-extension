@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "Bloquea el feed de inicio de YouTube y redirígelo a cualquier URL. Deja el scroll infinito: la búsqueda y los vídeos siguen funcionando."
+  },
+  "toggleOn": {
+    "message": "Redirigiendo el feed de inicio"
+  },
+  "toggleOff": {
+    "message": "En pausa: el feed está permitido"
+  },
+  "labelRedirectTo": {
+    "message": "Redirigir el inicio de YouTube a"
+  },
+  "hintInvalidUrl": {
+    "message": "Introduce una URL http(s) válida."
+  },
+  "btnSave": {
+    "message": "Guardar"
+  },
+  "btnSaved": {
+    "message": "Guardado ✓"
+  },
+  "statZero": {
+    "message": "Abre youtube.com para verlo funcionar."
+  },
+  "statCount": {
+    "message": "De vuelta al foco: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "Desarrollador:"
   }
 }

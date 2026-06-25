@@ -6,6 +6,17 @@ const enabled = document.getElementById("enabled");
 const toggleLabel = document.getElementById("toggleLabel");
 const stat = document.getElementById("stat");
 
+// Localize static markup via chrome.i18n. Elements carry data-i18n="<key>".
+function applyI18n() {
+  for (const el of document.querySelectorAll("[data-i18n]")) {
+    const msg = chrome.i18n.getMessage(el.dataset.i18n);
+    if (msg) el.textContent = msg;
+  }
+  const dir = chrome.i18n.getMessage("@@bidi_dir");
+  if (dir) document.documentElement.dir = dir;
+}
+applyI18n();
+
 // Standard host shapes: RFC-1123 domain with a real TLD, IPv4 literal, or localhost.
 const DOMAIN_RE =
   /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i;
@@ -42,18 +53,19 @@ function refreshValidity() {
 function renderEnabled(isOn) {
   enabled.checked = isOn;
   document.body.classList.toggle("paused", !isOn);
-  toggleLabel.textContent = isOn
-    ? "Redirecting the home feed"
-    : "Paused — feed is allowed";
+  toggleLabel.textContent = chrome.i18n.getMessage(
+    isOn ? "toggleOn" : "toggleOff",
+  );
 }
 
 function renderCount(count) {
   if (!count) {
-    stat.textContent = "Open youtube.com to see it work.";
+    stat.textContent = chrome.i18n.getMessage("statZero");
     return;
   }
-  const times = count === 1 ? "time" : "times";
-  stat.innerHTML = `Sent you back to focus <b>${count}</b> ${times}.`;
+  // The bold count is passed as the substitution so each locale controls
+  // where the number sits in the sentence.
+  stat.innerHTML = chrome.i18n.getMessage("statCount", `<b>${count}</b>`);
 }
 
 chrome.storage.sync.get(
@@ -93,10 +105,10 @@ form.addEventListener("submit", (event) => {
   }
   input.value = normalized;
   chrome.storage.sync.set({ redirectUrl: normalized }, () => {
-    save.textContent = "Saved ✓";
+    save.textContent = chrome.i18n.getMessage("btnSaved");
     save.classList.add("saved");
     setTimeout(() => {
-      save.textContent = "Save";
+      save.textContent = chrome.i18n.getMessage("btnSave");
       save.classList.remove("saved");
     }, 1500);
   });

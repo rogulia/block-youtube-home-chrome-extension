@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "احظر موجز صفحة YouTube الرئيسية وأعد توجيهه إلى أي رابط. أوقف التمرير اللانهائي وركّز — البحث والفيديوهات تعمل كالمعتاد."
+  },
+  "toggleOn": {
+    "message": "جارٍ إعادة توجيه موجز الصفحة الرئيسية"
+  },
+  "toggleOff": {
+    "message": "متوقّف مؤقتًا — الموجز مسموح"
+  },
+  "labelRedirectTo": {
+    "message": "إعادة توجيه صفحة YouTube الرئيسية إلى"
+  },
+  "hintInvalidUrl": {
+    "message": "أدخل رابط http(s) صالحًا."
+  },
+  "btnSave": {
+    "message": "حفظ"
+  },
+  "btnSaved": {
+    "message": "تم الحفظ ✓"
+  },
+  "statZero": {
+    "message": "افتح youtube.com لرؤية النتيجة."
+  },
+  "statCount": {
+    "message": "أعادك إلى التركيز: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "المطوّر:"
   }
 }

@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "YouTube होम फ़ीड को ब्लॉक करें और किसी भी URL पर रीडायरेक्ट करें। अंतहीन स्क्रॉलिंग रोकें — सर्च और वीडियो चलते रहेंगे।"
+  },
+  "toggleOn": {
+    "message": "होम फ़ीड रीडायरेक्ट हो रहा है"
+  },
+  "toggleOff": {
+    "message": "रुका हुआ — फ़ीड चालू है"
+  },
+  "labelRedirectTo": {
+    "message": "YouTube होम को यहाँ रीडायरेक्ट करें"
+  },
+  "hintInvalidUrl": {
+    "message": "मान्य http(s) URL दर्ज करें।"
+  },
+  "btnSave": {
+    "message": "सहेजें"
+  },
+  "btnSaved": {
+    "message": "सहेजा गया ✓"
+  },
+  "statZero": {
+    "message": "इसे काम करते देखने के लिए youtube.com खोलें।"
+  },
+  "statCount": {
+    "message": "फ़ोकस पर वापस भेजा: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "डेवलपर:"
   }
 }

@@ -4,5 +4,33 @@
   },
   "extDescription": {
     "message": "Block the YouTube homepage feed and redirect it to any URL. Stop endless scrolling and stay focused — search & videos still work."
+  },
+  "toggleOn": {
+    "message": "Redirecting the home feed"
+  },
+  "toggleOff": {
+    "message": "Paused — feed is allowed"
+  },
+  "labelRedirectTo": {
+    "message": "Redirect YouTube home to"
+  },
+  "hintInvalidUrl": {
+    "message": "Enter a valid http(s) URL."
+  },
+  "btnSave": {
+    "message": "Save"
+  },
+  "btnSaved": {
+    "message": "Saved ✓"
+  },
+  "statZero": {
+    "message": "Open youtube.com to see it work."
+  },
+  "statCount": {
+    "message": "Sent back to focus: $COUNT$",
+    "placeholders": { "count": { "content": "$1" } }
+  },
+  "footerDeveloper": {
+    "message": "Developer:"
   }
 }
