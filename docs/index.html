@@ -162,7 +162,7 @@
       .nav-cta:hover { border-color: var(--red); background: rgba(255, 0, 51, 0.08); }
 
       /* ---- hero ---- */
-      header { padding: 60px 0 40px; }
+      header.wrap { padding-top: 56px; padding-bottom: 40px; }
       .eyebrow {
         font-family: "JetBrains Mono", monospace;
         font-size: 12.5px;
@@ -237,24 +237,47 @@
         margin-bottom: 14px;
         display: block;
       }
-      .feed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
-      .feed-grid i {
-        display: block;
-        aspect-ratio: 16 / 11;
-        border-radius: 6px;
-        background: linear-gradient(135deg, #2a2a30, #1c1c20);
+      .feed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 11px; }
+      .vid { display: flex; flex-direction: column; gap: 8px; }
+      .vid .thumb {
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #313139, #1b1b20);
         position: relative;
         overflow: hidden;
       }
-      .feed-grid i::after {
+      .vid:nth-child(1) .thumb { background: linear-gradient(135deg, #3a2530, #201b20); }
+      .vid:nth-child(3) .thumb { background: linear-gradient(135deg, #26303a, #1a1d20); }
+      .vid:nth-child(4) .thumb { background: linear-gradient(135deg, #2c3329, #1b1d1a); }
+      .vid:nth-child(6) .thumb { background: linear-gradient(135deg, #332b3a, #1d1b20); }
+      .vid .thumb::before {
+        /* play glyph */
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(110deg, transparent 30%, rgba(255, 0, 51, 0.10) 50%, transparent 70%);
-        transform: translateX(-100%);
-        animation: shimmer 2.6s infinite;
+        margin: auto;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6px 0 6px 10px;
+        border-color: transparent transparent transparent rgba(255, 255, 255, 0.5);
       }
-      @keyframes shimmer { to { transform: translateX(100%); } }
+      .vid .thumb::after {
+        /* duration chip */
+        content: "";
+        position: absolute;
+        right: 6px;
+        bottom: 6px;
+        width: 22px;
+        height: 8px;
+        border-radius: 2px;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      .vid .meta { display: flex; gap: 8px; }
+      .vid .av { width: 20px; height: 20px; border-radius: 50%; background: #3a3a44; flex: none; }
+      .vid .lines { display: flex; flex-direction: column; gap: 5px; flex: 1; padding-top: 2px; }
+      .vid .lines b { display: block; height: 6px; width: 92%; border-radius: 3px; background: #41414c; }
+      .vid .lines i { display: block; height: 6px; width: 55%; border-radius: 3px; background: #2c2c34; }
       .arrow {
         font-family: "JetBrains Mono", monospace;
         color: var(--red);
@@ -288,7 +311,8 @@
       }
 
       /* ---- section scaffold ---- */
-      section { padding: 90px 0; position: relative; z-index: 1; }
+      section { position: relative; z-index: 1; }
+      section.wrap { padding-top: 112px; padding-bottom: 72px; }
       .kicker {
         font-family: "JetBrains Mono", monospace;
         font-size: 12px;
@@ -412,10 +436,10 @@
 
   <body>
     <nav>
-      <a class="brand" href="/">
+      <div class="brand">
         <img src="assets/icon-128.png" alt="YouTube Home Blocker icon" />
         <span>Home Blocker</span>
-      </a>
+      </div>
       <a
         class="nav-cta"
         href="https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp"
@@ -450,9 +474,14 @@
 
       <div class="ba reveal">
         <div class="panel">
-          <span class="tag">youtube.com — before</span>
-          <div class="feed-grid">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <span class="tag">youtube.com — home feed</span>
+          <div class="feed-grid" aria-hidden="true">
+            <article class="vid"><span class="thumb"></span><span class="meta"><span class="av"></span><span class="lines"><b></b><i></i></span></span></article>
+            <article class="vid"><span class="thumb"></span><span class="meta"><span class="av"></span><span class="lines"><b></b><i></i></span></span></article>
+            <article class="vid"><span class="thumb"></span><span class="meta"><span class="av"></span><span class="lines"><b></b><i></i></span></span></article>
+            <article class="vid"><span class="thumb"></span><span class="meta"><span class="av"></span><span class="lines"><b></b><i></i></span></span></article>
+            <article class="vid"><span class="thumb"></span><span class="meta"><span class="av"></span><span class="lines"><b></b><i></i></span></span></article>
+            <article class="vid"><span class="thumb"></span><span class="meta"><span class="av"></span><span class="lines"><b></b><i></i></span></span></article>
           </div>
         </div>
         <div class="arrow">&#10142;</div>
