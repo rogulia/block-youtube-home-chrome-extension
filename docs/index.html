@@ -62,18 +62,48 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Does this block all of YouTube?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. It only redirects the homepage feed at youtube.com. Search, video pages, subscriptions and history all keep working normally." }
+            "name": "How do I block the YouTube homepage feed?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Install the extension and it blocks the YouTube homepage feed automatically. The moment you open youtube.com, it redirects you to a page you choose, before the feed ever renders. Search and videos keep working." }
           },
           {
             "@type": "Question",
-            "name": "Where does it send me instead of the feed?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Any URL you choose — your task list, calendar, a blank page. The default is your Todoist Today view, changeable in one click from the toolbar popup." }
+            "name": "Does it stop endless scrolling and hide YouTube recommendations?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. By removing the home feed entirely — the source of infinite scroll, Shorts and personalised recommendations — there is nothing left to doom-scroll. You only see YouTube when you deliberately search or open a video." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I redirect the YouTube homepage to my task list or Todoist?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Point it at any URL — your task list, calendar, dashboard or a blank tab. The default redirect is your Todoist Today view, changeable in one click from the toolbar popup." }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from Unhook or feed-hiding extensions?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Feed blockers hide elements on the homepage after it loads. This one redirects the homepage away entirely, so the feed never loads at all — yet leaves the rest of YouTube (search, videos, subscriptions) completely untouched." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this block all of YouTube?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. It only redirects the homepage feed at youtube.com. Search, video pages, subscriptions, history and channels all keep working normally." }
+          },
+          {
+            "@type": "Question",
+            "name": "Will it slow YouTube down?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. It is a few kilobytes of plain JavaScript with no background process. The redirect runs before the page renders, so you never even see the feed load." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work on Chrome, Edge and Brave?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is a Manifest V3 extension built for Chrome, and it runs on any Chromium browser — including Microsoft Edge, Brave, Arc and Opera." }
           },
           {
             "@type": "Question",
             "name": "Does it collect my data?",
             "acceptedAnswer": { "@type": "Answer", "text": "No tracking, no accounts, no analytics. Your redirect URL is stored only in Chrome sync storage and never leaves your browser." }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I want the feed back temporarily?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Open the popup and flip the on/off switch. Redirecting pauses until you turn it back on — no uninstalling required." }
           }
         ]
       }
@@ -517,8 +547,8 @@
       <p class="kicker">See it work</p>
       <h2>Open YouTube, land on your list.</h2>
       <p class="section-lede">
-        The redirect fires at <code>document_start</code> — before the feed ever renders.
-        No flash of recommendations, no temptation.
+        It blocks the YouTube homepage feed at <code>document_start</code> — before the feed ever renders.
+        No flash of recommendations, no endless scrolling, no temptation.
       </p>
       <div class="demo-frame reveal">
         <video
@@ -593,16 +623,32 @@
       <h2>Good to know.</h2>
       <div class="faq">
         <details open>
+          <summary>How do I block the YouTube homepage feed?</summary>
+          <p>Install the extension and it blocks the YouTube homepage feed automatically: the moment you open <b>youtube.com/</b>, it redirects you to a page you choose, before the feed ever renders. There's nothing to configure — and search and videos keep working.</p>
+        </details>
+        <details>
+          <summary>Does it stop endless scrolling and hide YouTube recommendations?</summary>
+          <p>Yes. By removing the home feed entirely — the source of infinite scroll, Shorts and personalised recommendations — there's nothing left to doom-scroll. You only see YouTube when you deliberately search or open a video.</p>
+        </details>
+        <details>
+          <summary>Can I redirect the YouTube homepage to my task list or Todoist?</summary>
+          <p>Yes. Point it at any URL — your task list, calendar, dashboard or a blank tab. The default redirect is your Todoist Today view, and you can change it in one click from the toolbar popup.</p>
+        </details>
+        <details>
+          <summary>How is this different from Unhook or feed-hiding extensions?</summary>
+          <p>Feed blockers hide elements <em>on</em> the homepage after it loads. This one redirects the homepage away entirely, so the feed never loads at all — yet leaves the rest of YouTube (search, videos, subscriptions) completely untouched.</p>
+        </details>
+        <details>
           <summary>Does this block all of YouTube?</summary>
           <p>No. It only redirects the homepage feed at <b>youtube.com/</b>. Search, individual video pages, subscriptions, history and channels all keep working exactly as normal.</p>
         </details>
         <details>
-          <summary>Where does it send me instead?</summary>
-          <p>Any URL you choose — a task list, calendar, dashboard, or a blank page. The default is your Todoist Today view, and you can change it in one click from the toolbar popup.</p>
-        </details>
-        <details>
           <summary>Will it slow YouTube down?</summary>
           <p>No. It's a few kilobytes of plain JavaScript with no background process. The redirect runs before the page renders, so you never even see the feed load.</p>
+        </details>
+        <details>
+          <summary>Does it work on Chrome, Edge and Brave?</summary>
+          <p>Yes. It's a Manifest V3 extension built for Chrome, and it runs on any Chromium browser — including Microsoft Edge, Brave, Arc and Opera.</p>
         </details>
         <details>
           <summary>Does it collect or send my data?</summary>
