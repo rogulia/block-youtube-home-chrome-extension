@@ -41,6 +41,9 @@ across your browsers, never leaves them); the redirect counter lives in
 **From the Chrome Web Store (recommended):**
 [YouTube Home Blocker — Redirect & Focus](https://chromewebstore.google.com/detail/youtube-home-blocker-%E2%80%94-re/iicjmmpbljanedonobppjkndnhjdflgp)
 
+**Website:**
+[Block the YouTube homepage feed — landing page & FAQ](https://rogulia.github.io/block-youtube-home-chrome-extension/)
+
 ## Install from source
 
 1. Open `chrome://extensions`.

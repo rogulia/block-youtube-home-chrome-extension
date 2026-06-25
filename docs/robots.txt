@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rogulia.github.io/block-youtube-home-chrome-extension/sitemap.xml
